@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Services — RAISER Energy Corporation</title>
+<link rel="stylesheet" href="style.css"/>
+<style>
+.services-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  background: rgba(201,168,76,0.08);
+  margin-top: 60px;
+}
+
+.service-block {
+  background: var(--dark);
+  position: relative;
+  overflow: hidden;
+  padding: 70px 60px;
+  transition: background 0.4s;
+}
+
+.service-block:hover { background: var(--dark2); }
+
+.service-block .bg-num {
+  position: absolute;
+  right: -10px;
+  bottom: -30px;
+  font-family: var(--font-display);
+  font-size: 10rem;
+  font-weight: 700;
+  color: rgba(201,168,76,0.04);
+  line-height: 1;
+  pointer-events: none;
+}
+
+.service-block-icon {
+  width: 70px;
+  height: 70px;
+  border: 1px solid rgba(201,168,76,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  margin-bottom: 32px;
+}
+
+.service-block h2 {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: var(--white);
+  margin-bottom: 20px;
+}
+
+.service-block p {
+  font-size: 0.85rem;
+  color: var(--gray);
+  line-height: 1.9;
+  margin-bottom: 30px;
+}
+
+.service-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.service-features li {
+  font-size: 0.8rem;
+  color: var(--gray);
+  padding-left: 20px;
+  position: relative;
+}
+
+.service-features li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+}
+
+.process-section {
+  padding: 120px 60px;
+}
+
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+  margin-top: 60px;
+  position: relative;
+}
+
+.process-steps::before {
+  content: '';
+  position: absolute;
+  top: 35px;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.process-step {
+  text-align: center;
+  padding: 30px 20px;
+  position: relative;
+}
+
+.step-num {
+  width: 70px;
+  height: 70px;
+  border: 1px solid rgba(201,168,76,0.4);
+  background: var(--dark);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--gold);
+  margin: 0 auto 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.process-step h4 {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 10px;
+}
+
+.process-step p {
+  font-size: 0.72rem;
+  color: var(--gray);
+  line-height: 1.7;
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="logo-icon">☀</div>
+    <div>
+      <span class="logo-text">RAISER</span>
+      <span class="logo-sub">Energy Corporation</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html" class="active">Services</a></li>
+    <li><a href="products.html">Products</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="offers.html">Offers</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-actions">
+    <a href="login.html" class="btn-outline">Login</a>
+    <a href="register.html" class="btn-primary">Get Started</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1497440001374-f26997328c1b?w=1800&q=80')"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content fade-up">
+    <div class="section-label">Our Services</div>
+    <h1 class="section-title">Complete Solar <em>Solutions</em></h1>
+    <div class="gold-line"></div>
+    <p style="color:var(--gray);font-size:0.9rem;max-width:500px;line-height:1.8">
+      From design to deployment and beyond — RAISER handles every aspect of your solar journey.
+    </p>
+  </div>
+</div>
+
+<!-- SERVICES GRID -->
+<section style="padding:80px 60px">
+  <div class="services-hero-grid">
+    <!-- Solar Install -->
+    <div class="service-block">
+      <div class="bg-num">01</div>
+      <div class="service-block-icon">☀️</div>
+      <h2>Solar Installation</h2>
+      <p>
+        Our certified engineers design and install solar PV systems tailored to your energy consumption, roof type, and budget. From residential rooftops to large commercial arrays.
+      </p>
+      <ul class="service-features">
+        <li>Site survey and feasibility analysis</li>
+        <li>Custom system design and engineering</li>
+        <li>Grid-connected and off-grid systems</li>
+        <li>Net metering registration support</li>
+        <li>Subsidy and documentation assistance</li>
+      </ul>
+    </div>
+
+    <!-- Repair -->
+    <div class="service-block">
+      <div class="bg-num">02</div>
+      <div class="service-block-icon">🔧</div>
+      <h2>Repair &amp; Maintenance</h2>
+      <p>
+        Keep your system performing at peak efficiency. Our maintenance teams provide scheduled servicing, fault diagnostics, and rapid response repairs across all major brands.
+      </p>
+      <ul class="service-features">
+        <li>Annual maintenance contracts (AMC)</li>
+        <li>Panel cleaning and performance checks</li>
+        <li>Inverter diagnostics and replacement</li>
+        <li>Wiring and earthing inspection</li>
+        <li>Emergency response within 24 hours</li>
+      </ul>
+    </div>
+
+    <!-- Energy Audit -->
+    <div class="service-block" style="grid-column:1/-1">
+      <div class="bg-num">03</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start">
+        <div>
+          <div class="service-block-icon">📊</div>
+          <h2>Energy Consulting &amp; Audit</h2>
+          <p>
+            Our energy consultants analyze your power consumption, identify inefficiencies, and recommend the optimal solar solution to maximize ROI. We handle everything from report to subsidy filing.
+          </p>
+        </div>
+        <ul class="service-features" style="margin-top:50px">
+          <li>Full energy consumption audit</li>
+          <li>ROI and payback period calculation</li>
+          <li>Government incentive mapping</li>
+          <li>Financial modeling and loan assistance</li>
+          <li>Post-installation performance reporting</li>
+          <li>Smart energy monitoring setup</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process-section" style="padding-top:20px">
+  <div class="section-label">How It Works</div>
+  <h2 class="section-title">Our <em>Process</em></h2>
+  <div class="process-steps">
+    <div class="process-step">
+      <div class="step-num">1</div>
+      <h4>Inquiry</h4>
+      <p>Share your requirements and we schedule a free consultation.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-num">2</div>
+      <h4>Site Survey</h4>
+      <p>Our engineers visit and assess your site for optimal design.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-num">3</div>
+      <h4>Proposal</h4>
+      <p>Receive a detailed quote with ROI calculations and timelines.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-num">4</div>
+      <h4>Installation</h4>
+      <p>Certified crew installs your system within the committed schedule.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-num">5</div>
+      <h4>Go Live</h4>
+      <p>System commissioned, monitoring activated, savings begin.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="padding:80px 60px;text-align:center;background:var(--dark2);border-top:1px solid rgba(201,168,76,0.1)">
+  <div class="section-label">Get Started</div>
+  <h2 class="section-title" style="margin-bottom:24px">Ready to Go <em>Solar?</em></h2>
+  <p style="color:var(--gray);margin-bottom:40px;font-size:0.88rem">Schedule a free consultation with our solar experts today.</p>
+  <a href="contact.html" class="btn-primary">Book a Free Consultation</a>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="nav-logo" style="display:inline-flex">
+        <div class="logo-icon">☀</div>
+        <div><span class="logo-text">RAISER</span><span class="logo-sub">Energy Corporation</span></div>
+      </a>
+      <p>Empowering homes and businesses with clean, sustainable solar energy since 2009.</p>
+    </div>
+    <div class="footer-col"><h4>Company</h4><a href="about.html">About Us</a><a href="about.html#team">Our Team</a><a href="projects.html">Projects</a></div>
+    <div class="footer-col"><h4>Products</h4><a href="products.html">Solar Panels</a><a href="products.html">Battery</a><a href="products.html">Inverters</a></div>
+    <div class="footer-col"><h4>Support</h4><a href="contact.html">Contact</a><a href="customer-portal.html">Customer Portal</a></div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 RAISER Energy Corporation. All Rights Reserved.</p>
+    <p style="color:var(--gold);font-family:var(--font-mono);font-size:0.6rem;letter-spacing:0.1em;">POWERING A SUSTAINABLE FUTURE</p>
+  </div>
+</footer>
+
+</body>
+</html>
