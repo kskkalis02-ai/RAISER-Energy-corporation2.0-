@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Projects — RAISER Energy Corporation</title>
+<link rel="stylesheet" href="style.css"/>
+<style>
+.gallery-masonry {
+  columns: 3;
+  gap: 16px;
+  margin-top: 60px;
+}
+
+.gallery-item {
+  break-inside: avoid;
+  margin-bottom: 16px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.gallery-item img {
+  width: 100%;
+  display: block;
+  filter: brightness(0.7);
+  transition: all 0.5s;
+}
+
+.gallery-item:hover img {
+  filter: brightness(0.45);
+  transform: scale(1.04);
+}
+
+.gallery-caption {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 20px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.9));
+  transform: translateY(20px);
+  opacity: 0;
+  transition: all 0.4s;
+}
+
+.gallery-item:hover .gallery-caption {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.gallery-caption h4 {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--white);
+}
+
+.gallery-caption span {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  color: var(--gold);
+  letter-spacing: 0.15em;
+}
+
+/* VIDEOS */
+.videos-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin-top: 60px;
+}
+
+.video-card {
+  position: relative;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  cursor: pointer;
+  background: var(--dark3);
+}
+
+.video-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.5);
+  transition: transform 0.4s;
+}
+
+.video-card:hover img { transform: scale(1.06); filter: brightness(0.35); }
+
+.play-btn {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70px; height: 70px;
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  color: var(--gold);
+  transition: all 0.3s;
+}
+
+.video-card:hover .play-btn {
+  background: var(--gold);
+  color: var(--black);
+}
+
+.video-info {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 20px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.9));
+}
+
+.video-info h4 {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--white);
+}
+
+.video-info span {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+}
+
+/* CLIENTS */
+.clients-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  background: rgba(201,168,76,0.06);
+  margin-top: 60px;
+}
+
+.client-tile {
+  background: var(--dark);
+  padding: 50px 40px;
+  text-align: center;
+  transition: background 0.3s;
+}
+
+.client-tile:hover { background: var(--dark2); }
+
+.client-initials {
+  width: 80px; height: 80px;
+  border: 1px solid rgba(201,168,76,0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--gold);
+  margin: 0 auto 20px;
+}
+
+.client-tile h4 {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+
+.client-tile p {
+  font-size: 0.72rem;
+  color: var(--gray);
+}
+
+.client-tile .stars {
+  color: var(--gold);
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+}
+
+.testimonial-text {
+  font-size: 0.78rem;
+  color: var(--gray);
+  line-height: 1.7;
+  font-style: italic;
+  margin-top: 16px;
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="logo-icon">☀</div>
+    <div><span class="logo-text">RAISER</span><span class="logo-sub">Energy Corporation</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="products.html">Products</a></li>
+    <li><a href="projects.html" class="active">Projects</a></li>
+    <li><a href="offers.html">Offers</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-actions">
+    <a href="login.html" class="btn-outline">Login</a>
+    <a href="register.html" class="btn-primary">Get Started</a>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=1800&q=80')"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content fade-up">
+    <div class="section-label">Our Work</div>
+    <h1 class="section-title">12,000+ Projects <em>Delivered</em></h1>
+    <div class="gold-line"></div>
+    <p style="color:var(--gray);font-size:0.9rem;max-width:500px;line-height:1.8">
+      From rooftop homes to massive commercial arrays — every RAISER project tells a story of clean energy.
+    </p>
+  </div>
+</div>
+
+<!-- GALLERY -->
+<section style="padding:80px 60px" id="gallery">
+  <div class="section-label">Project Gallery</div>
+  <h2 class="section-title">Installations Across <em>India</em></h2>
+  <div class="gallery-masonry" data-render="projects">
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600&q=80" alt="Residential"/>
+      <div class="gallery-caption"><span>Residential · Chennai</span><h4>5kW Rooftop System</h4></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=600&q=80" alt="Solar Farm"/>
+      <div class="gallery-caption"><span>Commercial · Coimbatore</span><h4>2MW Solar Farm</h4></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1497440001374-f26997328c1b?w=600&q=80" alt="Industrial"/>
+      <div class="gallery-caption"><span>Industrial · Bangalore</span><h4>500kW Factory Array</h4></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1558449028-b53a39d100fc?w=600&q=80" alt="Panel Closeup"/>
+      <div class="gallery-caption"><span>Product · Pondicherry</span><h4>RAISER SunPRO 500W</h4></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=600&q=80" alt="Urban Solar"/>
+      <div class="gallery-caption"><span>Urban · Hyderabad</span><h4>Commercial Building 1MW</h4></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=600&q=80" alt="Installation Team"/>
+      <div class="gallery-caption"><span>Installation · Madurai</span><h4>School Campus 100kW</h4></div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEOS -->
+<section style="padding:80px 60px;padding-top:20px" id="videos">
+  <div class="section-label">Video Stories</div>
+  <h2 class="section-title">See Our Work <em>In Action</em></h2>
+  <div class="videos-grid">
+    <div class="video-card">
+      <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&q=80" alt="Video 1"/>
+      <div class="play-btn">▶</div>
+      <div class="video-info"><span>Project Walkthrough · 4:22</span><h4>From Rooftop to Grid-Ready</h4></div>
+    </div>
+    <div class="video-card">
+      <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=800&q=80" alt="Video 2"/>
+      <div class="play-btn">▶</div>
+      <div class="video-info"><span>Client Story · 3:15</span><h4>How RAISER Saved Us 80% on Bills</h4></div>
+    </div>
+    <div class="video-card">
+      <img src="https://images.unsplash.com/photo-1497440001374-f26997328c1b?w=800&q=80" alt="Video 3"/>
+      <div class="play-btn">▶</div>
+      <div class="video-info"><span>Technology · 6:48</span><h4>Inside the RAISER SmartFlow Inverter</h4></div>
+    </div>
+    <div class="video-card">
+      <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&q=80" alt="Video 4"/>
+      <div class="play-btn">▶</div>
+      <div class="video-info"><span>Case Study · 5:30</span><h4>2MW Commercial Installation in 30 Days</h4></div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTS -->
+<section style="padding:80px 60px;padding-top:20px" id="clients">
+  <div class="section-label">Trusted By</div>
+  <h2 class="section-title">Our Happy <em>Clients</em></h2>
+  <div class="clients-grid">
+    <div class="client-tile">
+      <div class="client-initials">RK</div>
+      <h4>Rajesh Kumar</h4>
+      <p style="color:var(--gray);font-size:0.68rem;margin-bottom:12px">Residential, Chennai</p>
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">"RAISER transformed my electricity bill. From ₹8,000 to under ₹400 a month. Exceptional service."</p>
+    </div>
+    <div class="client-tile">
+      <div class="client-initials">SL</div>
+      <h4>Sunita Lakshmi</h4>
+      <p style="color:var(--gray);font-size:0.68rem;margin-bottom:12px">Commercial, Coimbatore</p>
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">"Our factory's 500kW system was installed on time and under budget. ROI in under 4 years!"</p>
+    </div>
+    <div class="client-tile">
+      <div class="client-initials">VM</div>
+      <h4>Varun Mehta</h4>
+      <p style="color:var(--gray);font-size:0.68rem;margin-bottom:12px">Industrial, Bangalore</p>
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">"Professional team, top-quality equipment, and excellent after-sales support. Highly recommend."</p>
+    </div>
+    <div class="client-tile">
+      <div class="client-initials">AP</div>
+      <h4>Anitha Pillai</h4>
+      <p style="color:var(--gray);font-size:0.68rem;margin-bottom:12px">Residential, Pondicherry</p>
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">"The app monitoring is so intuitive. I can track every watt in real time from my phone."</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="nav-logo" style="display:inline-flex">
+        <div class="logo-icon">☀</div>
+        <div><span class="logo-text">RAISER</span><span class="logo-sub">Energy Corporation</span></div>
+      </a>
+      <p>Empowering homes and businesses with clean, sustainable solar energy since 2009.</p>
+    </div>
+    <div class="footer-col"><h4>Projects</h4><a href="#gallery">Gallery</a><a href="#videos">Videos</a><a href="#clients">Clients</a></div>
+    <div class="footer-col"><h4>Services</h4><a href="services.html">Solar Install</a><a href="services.html">Repair</a></div>
+    <div class="footer-col"><h4>Support</h4><a href="contact.html">Contact</a><a href="customer-portal.html">Portal</a><a href="owner-login.html">Owner Login</a></div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 RAISER Energy Corporation. All Rights Reserved.</p>
+    <p style="color:var(--gold);font-family:var(--font-mono);font-size:0.6rem;letter-spacing:0.1em;">POWERING A SUSTAINABLE FUTURE</p>
+  </div>
+</footer>
+<script src="js/site-data.js"></script>
+</body>
+</html>

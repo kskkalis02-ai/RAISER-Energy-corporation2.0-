@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Login — RAISER Energy Corporation</title>
+<link rel="stylesheet" href="style.css"/>
+<style>
+.auth-layout {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.auth-visual {
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-visual img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  filter: brightness(0.25);
+}
+
+.auth-visual-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(201,168,76,0.1), transparent);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 60px;
+}
+
+.auth-visual-overlay h2 {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 300;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+
+.auth-visual-overlay h2 em { font-style: italic; color: var(--gold); }
+
+.auth-visual-overlay p {
+  font-size: 0.82rem;
+  color: var(--gray);
+  line-height: 1.8;
+  max-width: 360px;
+}
+
+.auth-form-panel {
+  background: var(--dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px;
+}
+
+.auth-form-box {
+  width: 100%;
+  max-width: 420px;
+}
+
+.auth-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 50px;
+  text-decoration: none;
+}
+
+.auth-form-box h2 {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 300;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+
+.auth-form-box p {
+  font-size: 0.8rem;
+  color: var(--gray);
+  margin-bottom: 40px;
+}
+
+.auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(201,168,76,0.15);
+}
+
+.auth-divider span {
+  font-size: 0.68rem;
+  color: var(--gray2);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.auth-link {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--gray);
+  margin-top: 24px;
+}
+
+.auth-link a {
+  color: var(--gold);
+  text-decoration: none;
+}
+
+.auth-link a:hover { text-decoration: underline; }
+
+.forgot-link {
+  text-align: right;
+  font-size: 0.72rem;
+  color: var(--gold);
+  text-decoration: none;
+  display: block;
+  margin-top: -8px;
+  margin-bottom: 24px;
+}
+</style>
+</head>
+<body>
+
+<div class="auth-layout">
+  <!-- Visual -->
+  <div class="auth-visual">
+    <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1200&q=80" alt="Solar"/>
+    <div class="auth-visual-overlay">
+      <h2>Power Your<br><em>Future</em></h2>
+      <p>Login to monitor your solar system, track savings, manage service requests, and more.</p>
+      <div style="margin-top:30px;display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:300px">
+        <div class="stat-box">
+          <div class="number" style="font-size:1.8rem">50MW</div>
+          <div class="label">Installed</div>
+        </div>
+        <div class="stat-box">
+          <div class="number" style="font-size:1.8rem">12K+</div>
+          <div class="label">Customers</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Form -->
+  <div class="auth-form-panel">
+    <div class="auth-form-box">
+      <a href="index.html" class="auth-logo">
+        <div class="logo-icon">☀</div>
+        <div>
+          <span class="logo-text">RAISER</span>
+          <span class="logo-sub">Energy Corporation</span>
+        </div>
+      </a>
+
+      <h2>Welcome Back</h2>
+      <p>Login to your RAISER account</p>
+
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" placeholder="you@email.com" id="login-email"/>
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" placeholder="••••••••" id="login-pass"/>
+      </div>
+      <a href="#" class="forgot-link">Forgot password?</a>
+
+      <button class="btn-primary" style="width:100%;padding:16px;font-size:0.78rem" onclick="doLogin()">
+        Sign In →
+      </button>
+
+      <div class="auth-divider"><span>or</span></div>
+
+      <div class="auth-link">
+        Don't have an account? <a href="register.html">Register here</a>
+      </div>
+
+      <div class="auth-divider" style="margin-top:40px"><span>Quick Access</span></div>
+      <a href="customer-portal.html" class="btn-outline" style="width:100%;text-align:center;display:block">
+        Customer Portal
+      </a>
+      <a href="owner-login.html" class="btn-outline" style="width:100%;text-align:center;display:block;margin-top:12px">
+        Owner Operation Login
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+function doLogin() {
+  const e = document.getElementById('login-email').value.trim();
+  const p = document.getElementById('login-pass').value;
+  if (!e || !p) { alert('Please enter your email and password.'); return; }
+  window.location.href = 'customer-portal.html';
+}
+</script>
+</body>
+</html>

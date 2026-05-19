@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Products — RAISER Energy Corporation</title>
+<link rel="stylesheet" href="style.css"/>
+<style>
+.products-filter {
+  display: flex;
+  gap: 4px;
+  margin: 40px 0;
+}
+
+.filter-btn {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 10px 24px;
+  background: transparent;
+  border: 1px solid rgba(201,168,76,0.2);
+  color: var(--gray);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.filter-btn.active, .filter-btn:hover {
+  background: var(--gold);
+  color: var(--black);
+  border-color: var(--gold);
+}
+
+.product-showcase {
+  margin-bottom: 120px;
+}
+
+.product-showcase:last-child { margin-bottom: 0; }
+
+.product-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  background: rgba(201,168,76,0.08);
+  margin-bottom: 2px;
+}
+
+.product-row.reverse { direction: rtl; }
+.product-row.reverse > * { direction: ltr; }
+
+.product-image {
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  position: relative;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.7);
+  transition: transform 0.6s ease;
+}
+
+.product-image:hover img { transform: scale(1.06); }
+
+.product-detail {
+  background: var(--dark);
+  padding: 70px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.product-badge {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid rgba(201,168,76,0.3);
+  display: inline-block;
+  padding: 6px 16px;
+  margin-bottom: 24px;
+}
+
+.product-detail h2 {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 300;
+  color: var(--white);
+  margin-bottom: 20px;
+  line-height: 1.1;
+}
+
+.product-detail p {
+  font-size: 0.85rem;
+  color: var(--gray);
+  line-height: 1.9;
+  margin-bottom: 32px;
+}
+
+.spec-table {
+  border: 1px solid rgba(201,168,76,0.1);
+  margin-bottom: 32px;
+}
+
+.spec-row {
+  display: flex;
+  border-bottom: 1px solid rgba(201,168,76,0.08);
+}
+
+.spec-row:last-child { border-bottom: none; }
+
+.spec-key {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  color: var(--gray2);
+  padding: 12px 16px;
+  width: 45%;
+  border-right: 1px solid rgba(201,168,76,0.08);
+  text-transform: uppercase;
+}
+
+.spec-val {
+  font-size: 0.82rem;
+  color: var(--white);
+  padding: 12px 16px;
+  font-weight: 500;
+}
+
+.product-variants {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 40px;
+}
+
+.variant-card {
+  border: 1px solid rgba(201,168,76,0.15);
+  padding: 24px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.variant-card:hover, .variant-card.active {
+  border-color: var(--gold);
+  background: var(--gold-glow);
+}
+
+.variant-card .v-power {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--gold);
+}
+
+.variant-card .v-label {
+  font-size: 0.7rem;
+  color: var(--gray);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.variant-card .v-price {
+  font-size: 0.82rem;
+  color: var(--white);
+  margin-top: 8px;
+  font-weight: 600;
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="logo-icon">☀</div>
+    <div><span class="logo-text">RAISER</span><span class="logo-sub">Energy Corporation</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="products.html" class="active">Products</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="offers.html">Offers</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-actions">
+    <a href="login.html" class="btn-outline">Login</a>
+    <a href="register.html" class="btn-primary">Get Started</a>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1800&q=80')"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content fade-up">
+    <div class="section-label">Product Catalog</div>
+    <h1 class="section-title">Premium Solar <em>Hardware</em></h1>
+    <div class="gold-line"></div>
+    <p style="color:var(--gray);font-size:0.9rem;max-width:500px;line-height:1.8">
+      Tier-1 solar components engineered for the Indian climate — built to last 25+ years.
+    </p>
+  </div>
+</div>
+
+<section style="padding:80px 60px" data-render="products">
+
+  <!-- SOLAR PANELS -->
+  <div class="product-showcase" id="panels">
+    <div class="section-label">Category 01</div>
+    <h2 class="section-title" style="margin-bottom:40px">Solar <em>Panels</em></h2>
+    <div class="product-row">
+      <div class="product-image">
+        <img src="https://images.unsplash.com/photo-1558449028-b53a39d100fc?w=800&q=80" alt="Solar Panels"/>
+      </div>
+      <div class="product-detail">
+        <span class="product-badge">Monocrystalline PERC</span>
+        <h2>RAISER<br>SunPRO Series</h2>
+        <p>Industry-leading efficiency monocrystalline panels with half-cut cell technology. Designed specifically for high-temperature performance in Indian conditions.</p>
+        <div class="spec-table">
+          <div class="spec-row"><div class="spec-key">Efficiency</div><div class="spec-val">22.3%</div></div>
+          <div class="spec-row"><div class="spec-key">Warranty</div><div class="spec-val">25 Years Performance</div></div>
+          <div class="spec-row"><div class="spec-key">Certifications</div><div class="spec-val">IEC, BIS, MNRE Approved</div></div>
+          <div class="spec-row"><div class="spec-key">Temperature Coeff.</div><div class="spec-val">-0.34%/°C</div></div>
+        </div>
+        <div class="product-variants">
+          <div class="variant-card active"><div class="v-power">400W</div><div class="v-label">Residential</div><div class="v-price">₹18,500</div></div>
+          <div class="variant-card"><div class="v-power">500W</div><div class="v-label">Commercial</div><div class="v-price">₹22,000</div></div>
+          <div class="variant-card"><div class="v-power">600W</div><div class="v-label">Industrial</div><div class="v-price">₹26,500</div></div>
+        </div>
+        <div style="margin-top:30px"><a href="customer-portal.html" class="btn-primary">Request Quote</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BATTERY -->
+  <div class="product-showcase" id="battery">
+    <div class="section-label">Category 02</div>
+    <h2 class="section-title" style="margin-bottom:40px">Battery <em>Storage</em></h2>
+    <div class="product-row reverse">
+      <div class="product-image">
+        <img src="https://images.unsplash.com/photo-1620714223084-8fcacc2dbe4d?w=800&q=80" alt="Battery Storage"/>
+      </div>
+      <div class="product-detail">
+        <span class="product-badge">LiFePO4 Technology</span>
+        <h2>RAISER<br>PowerVault</h2>
+        <p>Advanced lithium iron phosphate battery systems for round-the-clock energy independence. Safe, long-lasting, and compatible with all major inverter brands.</p>
+        <div class="spec-table">
+          <div class="spec-row"><div class="spec-key">Chemistry</div><div class="spec-val">LiFePO4 (Lithium Iron Phosphate)</div></div>
+          <div class="spec-row"><div class="spec-key">Cycle Life</div><div class="spec-val">6,000+ Cycles</div></div>
+          <div class="spec-row"><div class="spec-key">Warranty</div><div class="spec-val">10 Years</div></div>
+          <div class="spec-row"><div class="spec-key">DoD</div><div class="spec-val">95%</div></div>
+        </div>
+        <div class="product-variants">
+          <div class="variant-card active"><div class="v-power">5kWh</div><div class="v-label">Home</div><div class="v-price">₹1.2L</div></div>
+          <div class="variant-card"><div class="v-power">10kWh</div><div class="v-label">Premium</div><div class="v-price">₹2.2L</div></div>
+          <div class="variant-card"><div class="v-power">20kWh</div><div class="v-label">Commercial</div><div class="v-price">₹4.0L</div></div>
+        </div>
+        <div style="margin-top:30px"><a href="customer-portal.html" class="btn-primary">Request Quote</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INVERTER -->
+  <div class="product-showcase" id="inverter">
+    <div class="section-label">Category 03</div>
+    <h2 class="section-title" style="margin-bottom:40px">Solar <em>Inverters</em></h2>
+    <div class="product-row">
+      <div class="product-image">
+        <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&q=80" alt="Solar Inverter"/>
+      </div>
+      <div class="product-detail">
+        <span class="product-badge">Hybrid String Inverter</span>
+        <h2>RAISER<br>SmartFlow</h2>
+        <p>Next-generation hybrid inverters with built-in Wi-Fi monitoring, AI-driven MPPT, and seamless grid/battery switching for maximum energy harvest.</p>
+        <div class="spec-table">
+          <div class="spec-row"><div class="spec-key">Efficiency</div><div class="spec-val">98.6% Peak</div></div>
+          <div class="spec-row"><div class="spec-key">Warranty</div><div class="spec-val">10 Years</div></div>
+          <div class="spec-row"><div class="spec-key">Monitoring</div><div class="spec-val">Wi-Fi + App (iOS & Android)</div></div>
+          <div class="spec-row"><div class="spec-key">Protection</div><div class="spec-val">IP65 Rated</div></div>
+        </div>
+        <div class="product-variants">
+          <div class="variant-card active"><div class="v-power">3kW</div><div class="v-label">Compact</div><div class="v-price">₹42,000</div></div>
+          <div class="variant-card"><div class="v-power">5kW</div><div class="v-label">Standard</div><div class="v-price">₹60,000</div></div>
+          <div class="variant-card"><div class="v-power">10kW</div><div class="v-label">Pro</div><div class="v-price">₹1.1L</div></div>
+        </div>
+        <div style="margin-top:30px"><a href="customer-portal.html" class="btn-primary">Request Quote</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="nav-logo" style="display:inline-flex">
+        <div class="logo-icon">☀</div>
+        <div><span class="logo-text">RAISER</span><span class="logo-sub">Energy Corporation</span></div>
+      </a>
+      <p>Empowering homes and businesses with clean, sustainable solar energy since 2009.</p>
+    </div>
+    <div class="footer-col"><h4>Products</h4><a href="#panels">Solar Panels</a><a href="#battery">Battery Storage</a><a href="#inverter">Inverters</a></div>
+    <div class="footer-col"><h4>Services</h4><a href="services.html">Solar Install</a><a href="services.html">Repair & Maintenance</a></div>
+    <div class="footer-col"><h4>Support</h4><a href="contact.html">Contact</a><a href="customer-portal.html">Customer Portal</a><a href="owner-login.html">Owner Login</a></div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 RAISER Energy Corporation. All Rights Reserved.</p>
+    <p style="color:var(--gold);font-family:var(--font-mono);font-size:0.6rem;letter-spacing:0.1em;">POWERING A SUSTAINABLE FUTURE</p>
+  </div>
+</footer>
+<script src="js/site-data.js"></script>
+</body>
+</html>

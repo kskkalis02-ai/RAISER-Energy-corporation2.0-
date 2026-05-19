@@ -1,0 +1,216 @@
+{
+  "products": [
+    {
+      "id": "panels",
+      "category": "Category 01",
+      "group": "Solar Panels",
+      "badge": "Monocrystalline PERC",
+      "title": "RAISER SunPRO Series",
+      "description": "Industry-leading efficiency monocrystalline panels with half-cut cell technology, designed for high-temperature performance in Indian conditions.",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Sustainability%20-%20EMF%20Solar%20Panels%20(KSC-20200918-PH-JBS02%200026).jpg",
+      "specs": [
+        {
+          "key": "Efficiency",
+          "value": "22.3%"
+        },
+        {
+          "key": "Warranty",
+          "value": "25 Years Performance"
+        },
+        {
+          "key": "Certifications",
+          "value": "IEC, BIS, MNRE Approved"
+        },
+        {
+          "key": "Temperature Coeff.",
+          "value": "-0.34%/C"
+        }
+      ],
+      "variants": [
+        {
+          "power": "400W",
+          "label": "Residential",
+          "price": "Rs. 18,500"
+        },
+        {
+          "power": "500W",
+          "label": "Commercial",
+          "price": "Rs. 22,000"
+        },
+        {
+          "power": "600W",
+          "label": "Industrial",
+          "price": "Rs. 26,500"
+        }
+      ]
+    },
+    {
+      "id": "battery",
+      "category": "Category 02",
+      "group": "Battery Storage",
+      "badge": "LiFePO4 Technology",
+      "title": "RAISER PowerVault",
+      "description": "Advanced lithium iron phosphate battery systems for round-the-clock energy independence. Safe, long-lasting, and compatible with all major inverter brands.",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/6/64/Home_energy_storage_system_products.jpg",
+      "specs": [
+        {
+          "key": "Chemistry",
+          "value": "LiFePO4"
+        },
+        {
+          "key": "Cycle Life",
+          "value": "6,000+ Cycles"
+        },
+        {
+          "key": "Warranty",
+          "value": "10 Years"
+        },
+        {
+          "key": "Depth of Discharge",
+          "value": "95%"
+        }
+      ],
+      "variants": [
+        {
+          "power": "5kWh",
+          "label": "Home",
+          "price": "Rs. 1.2L"
+        },
+        {
+          "power": "10kWh",
+          "label": "Premium",
+          "price": "Rs. 2.2L"
+        },
+        {
+          "power": "20kWh",
+          "label": "Commercial",
+          "price": "Rs. 4.0L"
+        }
+      ]
+    },
+    {
+      "id": "inverter",
+      "category": "Category 03",
+      "group": "Solar Inverters",
+      "badge": "Hybrid String Inverter",
+      "title": "RAISER SmartFlow",
+      "description": "Next-generation hybrid inverters with built-in Wi-Fi monitoring, AI-driven MPPT, and seamless grid/battery switching for maximum energy harvest.",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/SolectriaSolarInverter_4443.jpg",
+      "specs": [
+        {
+          "key": "Efficiency",
+          "value": "98.6% Peak"
+        },
+        {
+          "key": "Warranty",
+          "value": "10 Years"
+        },
+        {
+          "key": "Monitoring",
+          "value": "Wi-Fi + App"
+        },
+        {
+          "key": "Protection",
+          "value": "IP65 Rated"
+        }
+      ],
+      "variants": [
+        {
+          "power": "3kW",
+          "label": "Compact",
+          "price": "Rs. 42,000"
+        },
+        {
+          "power": "5kW",
+          "label": "Standard",
+          "price": "Rs. 60,000"
+        },
+        {
+          "power": "10kW",
+          "label": "Pro",
+          "price": "Rs. 1.1L"
+        }
+      ]
+    }
+  ],
+  "offers": [
+    {
+      "id": "monsoon",
+      "tag": "Active",
+      "title": "Monsoon Special",
+      "description": "Install before August 31 and get 15% off on any residential system package.",
+      "saving": "Save up to Rs. 48,000"
+    },
+    {
+      "id": "referral",
+      "tag": "Active",
+      "title": "Referral Bonus",
+      "description": "Refer a friend and both of you get Rs. 10,000 credited towards your next service or upgrade.",
+      "saving": "Rs. 10,000 Credit"
+    },
+    {
+      "id": "bundle",
+      "tag": "Limited",
+      "title": "Bundle & Save",
+      "description": "Add a PowerVault battery storage system with any new installation and save 20% on battery.",
+      "saving": "Save up to Rs. 80,000"
+    }
+  ],
+  "projects": [
+    {
+      "id": "rooftop-chennai",
+      "type": "Residential",
+      "location": "Chennai",
+      "title": "5kW Rooftop System",
+      "image": "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=900&q=80"
+    },
+    {
+      "id": "solar-farm-coimbatore",
+      "type": "Commercial",
+      "location": "Coimbatore",
+      "title": "2MW Solar Farm",
+      "image": "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=900&q=80"
+    },
+    {
+      "id": "factory-bangalore",
+      "type": "Industrial",
+      "location": "Bangalore",
+      "title": "500kW Factory Array",
+      "image": "https://images.unsplash.com/photo-1497440001374-f26997328c1b?w=900&q=80"
+    }
+  ],
+  "customers": [
+    {
+      "id": "C-1001",
+      "name": "Ravi Kumar",
+      "email": "ravi@email.com",
+      "phone": "+91 98765 43210",
+      "city": "Puducherry",
+      "status": "Active"
+    },
+    {
+      "id": "C-1002",
+      "name": "Sunita Lakshmi",
+      "email": "sunita@email.com",
+      "phone": "+91 98765 43211",
+      "city": "Coimbatore",
+      "status": "Quote Sent"
+    }
+  ],
+  "orders": [
+    {
+      "id": "ORD-2401",
+      "customer": "Ravi Kumar",
+      "product": "RAISER PowerVault",
+      "amount": "Rs. 2.2L",
+      "status": "Installation Scheduled"
+    },
+    {
+      "id": "ORD-2402",
+      "customer": "Sunita Lakshmi",
+      "product": "Commercial Solar System",
+      "amount": "Custom",
+      "status": "Site Survey"
+    }
+  ]
+}

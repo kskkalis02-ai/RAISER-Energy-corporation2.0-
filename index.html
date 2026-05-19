@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>RAISER Energy Corporation — Powering Tomorrow</title>
+<link rel="stylesheet" href="style.css"/>
+<style>
+/* ── HERO ── */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.75fr);
+  gap: 40px;
+  align-items: center;
+  overflow: hidden;
+  padding-right: 60px;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(90deg, rgba(6,17,14,0.92) 0%, rgba(6,17,14,0.68) 44%, rgba(6,17,14,0.26) 100%),
+    url('https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=1800&q=85');
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.88) saturate(1.05);
+  transform: scale(1.05);
+  animation: heroZoom 12s ease-in-out infinite alternate;
+}
+
+@keyframes heroZoom {
+  from { transform: scale(1.05); }
+  to { transform: scale(1.12); }
+}
+
+.hero-gradient {
+  position: absolute;
+  inset: 0;
+  background: 
+    repeating-linear-gradient(112deg, rgba(240,184,77,0.09) 0 1px, transparent 1px 52px),
+    radial-gradient(ellipse 70% 80% at 78% 22%, rgba(240,184,77,0.22) 0%, transparent 58%),
+    linear-gradient(180deg, transparent 30%, var(--black) 100%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 60px;
+  max-width: 900px;
+}
+
+.hero-panel {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  gap: 18px;
+  padding: 28px;
+  border: 1px solid rgba(240,184,77,0.22);
+  border-radius: 8px;
+  background: linear-gradient(145deg, rgba(13,28,24,0.82), rgba(13,28,24,0.42));
+  backdrop-filter: blur(18px);
+  box-shadow: 0 24px 80px rgba(0,0,0,0.32);
+}
+
+.hero-panel-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: flex-start;
+}
+
+.hero-panel h3 {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1;
+}
+
+.hero-panel p {
+  color: var(--gray);
+  font-size: 0.8rem;
+  line-height: 1.8;
+}
+
+.sun-meter {
+  width: 86px;
+  height: 86px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background:
+    conic-gradient(var(--gold) 0 82%, rgba(240,184,77,0.15) 82% 100%);
+  color: var(--black);
+  font-weight: 800;
+  box-shadow: 0 0 36px rgba(240,184,77,0.22);
+}
+
+.hero-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.hero-metric {
+  border: 1px solid rgba(240,184,77,0.14);
+  border-radius: 8px;
+  padding: 16px;
+  background: rgba(6,17,14,0.34);
+}
+
+.hero-metric strong {
+  display: block;
+  color: var(--gold);
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+}
+
+.hero-metric span {
+  color: var(--gray);
+  font-size: 0.64rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.power-flow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  align-items: center;
+}
+
+.flow-node {
+  border: 1px solid rgba(240,184,77,0.2);
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+  background: rgba(255,255,255,0.04);
+}
+
+.flow-node b {
+  display: block;
+  color: var(--white);
+  margin-bottom: 5px;
+}
+
+.hero-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.hero-eyebrow::before {
+  content: '';
+  width: 40px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 8vw, 7rem);
+  font-weight: 300;
+  line-height: 1.0;
+  color: var(--white);
+  margin-bottom: 32px;
+}
+
+.hero-title em {
+  font-style: italic;
+  color: var(--gold);
+  display: block;
+}
+
+.hero-sub {
+  font-size: 0.95rem;
+  color: var(--gray);
+  line-height: 1.9;
+  max-width: 500px;
+  margin-bottom: 48px;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.scroll-line {
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(180deg, var(--gold), transparent);
+  animation: scrollPulse 2s infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.4; transform: scaleY(1); }
+  50% { opacity: 1; transform: scaleY(1.1); }
+}
+
+.scroll-label {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  color: var(--gray2);
+  text-transform: uppercase;
+  writing-mode: vertical-rl;
+}
+
+/* ── STATS STRIP ── */
+.stats-strip {
+  background: var(--dark2);
+  border-top: 1px solid rgba(201,168,76,0.15);
+  border-bottom: 1px solid rgba(201,168,76,0.15);
+  padding: 50px 60px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+
+.stats-strip .stat {
+  text-align: center;
+  border-right: 1px solid rgba(201,168,76,0.1);
+  padding: 20px;
+}
+
+.stats-strip .stat:last-child { border-right: none; }
+
+.stats-strip .num {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  font-weight: 600;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.stats-strip .unit {
+  font-size: 1.2rem;
+  color: var(--gold-light);
+}
+
+.stats-strip .lbl {
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gray);
+  margin-top: 10px;
+}
+
+/* ── WHY US ── */
+.section {
+  padding: 120px 60px;
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  margin-top: 80px;
+}
+
+.why-img {
+  position: relative;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+}
+
+.why-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.7);
+}
+
+.why-img-badge {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  background: var(--gold);
+  color: var(--black);
+  padding: 24px 32px;
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.why-points {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.why-point {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.why-point-icon {
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgba(201,168,76,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.why-point h4 {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+
+.why-point p {
+  font-size: 0.8rem;
+  color: var(--gray);
+  line-height: 1.7;
+}
+
+/* ── SERVICES PREVIEW ── */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: rgba(201,168,76,0.1);
+  margin-top: 60px;
+}
+
+.service-tile {
+  background: var(--dark);
+  padding: 50px 40px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  text-decoration: none;
+  display: block;
+  transition: background 0.4s;
+}
+
+.service-tile::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--gold-glow), transparent);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.service-tile:hover { background: var(--dark2); }
+.service-tile:hover::after { opacity: 1; }
+
+.service-number {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: var(--gold);
+  letter-spacing: 0.2em;
+  margin-bottom: 24px;
+}
+
+.service-tile h3 {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: var(--white);
+  margin-bottom: 16px;
+}
+
+.service-tile p {
+  font-size: 0.8rem;
+  color: var(--gray);
+  line-height: 1.8;
+}
+
+.service-arrow {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  color: var(--gold);
+  font-size: 1.4rem;
+  opacity: 0;
+  transform: translate(-10px, 10px);
+  transition: all 0.3s;
+}
+
+.service-tile:hover .service-arrow {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* ── PRODUCTS PREVIEW ── */
+.products-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 60px;
+}
+
+.product-card {
+  position: relative;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.product-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.5);
+  transition: transform 0.6s ease, filter 0.4s;
+}
+
+.product-card:hover img {
+  transform: scale(1.08);
+  filter: brightness(0.35);
+}
+
+.product-card-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 30px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.9));
+}
+
+.product-card-info span {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--gold);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.product-card-info h3 {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: var(--white);
+  margin-top: 6px;
+}
+
+/* ── CTA SECTION ── */
+.cta-section {
+  position: relative;
+  padding: 140px 60px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.cta-section-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1558449028-b53a39d100fc?w=1800&q=80');
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.15);
+}
+
+.cta-section-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 80% at 50% 50%, rgba(201,168,76,0.1), transparent);
+}
+
+.cta-content { position: relative; z-index: 2; }
+
+.cta-content h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  font-weight: 300;
+  color: var(--white);
+  margin-bottom: 24px;
+}
+
+.cta-content h2 em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.cta-content p {
+  font-size: 0.9rem;
+  color: var(--gray);
+  margin-bottom: 48px;
+  max-width: 500px;
+  margin-inline: auto;
+  line-height: 1.8;
+}
+
+.solar-feature-band {
+  padding: 80px 60px;
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 30px;
+  align-items: stretch;
+}
+
+.solar-glass {
+  border: 1px solid rgba(240,184,77,0.18);
+  border-radius: 8px;
+  background: linear-gradient(145deg, rgba(18,40,34,0.74), rgba(13,28,24,0.44));
+  backdrop-filter: blur(16px);
+  padding: 34px;
+}
+
+.solar-glass h3 {
+  font-family: var(--font-display);
+  color: var(--white);
+  font-size: 2.2rem;
+  font-weight: 400;
+  margin-bottom: 16px;
+}
+
+.solar-glass p,
+.solar-feature-list li {
+  color: var(--gray);
+  font-size: 0.86rem;
+  line-height: 1.8;
+}
+
+.solar-feature-list {
+  list-style: none;
+  display: grid;
+  gap: 14px;
+}
+
+.solar-feature-list li {
+  border: 1px solid rgba(240,184,77,0.13);
+  border-radius: 8px;
+  padding: 18px 20px;
+  background: rgba(6,17,14,0.28);
+}
+
+.savings-section {
+  padding: 110px 60px;
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 50px;
+  align-items: center;
+  background:
+    linear-gradient(135deg, rgba(31,174,118,0.1), transparent),
+    rgba(6,17,14,0.32);
+  border-top: 1px solid rgba(240,184,77,0.12);
+  border-bottom: 1px solid rgba(240,184,77,0.12);
+}
+
+.calculator-card {
+  background: var(--dark2);
+  border: 1px solid rgba(240,184,77,0.18);
+  border-radius: 8px;
+  padding: 34px;
+}
+
+.calc-row {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.calc-row label {
+  color: var(--gold);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.calc-row input {
+  width: 100%;
+  accent-color: var(--gold);
+}
+
+.calc-output {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.calc-output div {
+  border: 1px solid rgba(240,184,77,0.14);
+  border-radius: 8px;
+  padding: 18px;
+  background: rgba(6,17,14,0.34);
+}
+
+.calc-output strong {
+  display: block;
+  color: var(--gold);
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  margin-bottom: 6px;
+}
+
+.calc-output span {
+  color: var(--gray);
+  font-size: 0.7rem;
+}
+
+.faq-section {
+  padding: 110px 60px;
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  margin-top: 44px;
+}
+
+.faq-card {
+  border: 1px solid rgba(240,184,77,0.14);
+  border-radius: 8px;
+  padding: 26px;
+  background: rgba(18,40,34,0.58);
+}
+
+.faq-card h3 {
+  font-family: var(--font-display);
+  color: var(--white);
+  font-size: 1.45rem;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+.faq-card p {
+  color: var(--gray);
+  font-size: 0.82rem;
+  line-height: 1.8;
+}
+
+.search-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 4000;
+  display: none;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 110px 24px 24px;
+  background: rgba(6,17,14,0.82);
+  backdrop-filter: blur(14px);
+}
+
+.search-overlay.open {
+  display: flex;
+}
+
+.search-box {
+  width: min(720px, 100%);
+  border: 1px solid rgba(240,184,77,0.24);
+  border-radius: 8px;
+  background: var(--dark2);
+  padding: 24px;
+}
+
+.search-box input {
+  width: 100%;
+  background: var(--dark3);
+  border: 1px solid rgba(240,184,77,0.2);
+  border-radius: 8px;
+  color: var(--white);
+  padding: 16px 18px;
+  font-size: 1rem;
+}
+
+.search-results {
+  display: grid;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.search-results a {
+  color: var(--white);
+  text-decoration: none;
+  border: 1px solid rgba(240,184,77,0.12);
+  border-radius: 8px;
+  padding: 14px 16px;
+}
+
+@media (max-width: 920px) {
+  .hero,
+  .solar-feature-band,
+  .savings-section,
+  .faq-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding-right: 28px;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-panel,
+  .solar-feature-band,
+  .savings-section,
+  .faq-section {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .hero-panel,
+  .solar-glass,
+  .calculator-card {
+    padding: 24px;
+  }
+
+  .hero-metrics,
+  .power-flow,
+  .calc-output {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="logo-icon">☀</div>
+    <div>
+      <span class="logo-text">RAISER</span>
+      <span class="logo-sub">Energy Corporation</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="products.html">Products</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="offers.html">Offers</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="btn-outline" id="siteSearchBtn" type="button">Search</button>
+    <button class="btn-outline" id="siteShareBtn" type="button">Share</button>
+    <a href="login.html" class="btn-outline">Login</a>
+    <a href="register.html" class="btn-primary">Get Started</a>
+  </div>
+</nav>
+
+<div class="search-overlay" id="siteSearchOverlay" aria-hidden="true">
+  <div class="search-box">
+    <div style="display:flex;justify-content:space-between;gap:16px;align-items:center;margin-bottom:16px">
+      <div>
+        <div class="section-label" style="margin-bottom:6px">Site Search</div>
+        <h2 class="section-title" style="font-size:2rem">Find <em>Solar Pages</em></h2>
+      </div>
+      <button class="btn-outline" id="siteSearchClose" type="button">Close</button>
+    </div>
+    <input id="siteSearchInput" type="search" placeholder="Search products, offers, projects, contact..."/>
+    <div class="search-results" id="siteSearchResults"></div>
+  </div>
+</div>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-gradient"></div>
+
+  <div class="hero-content fade-up">
+    <div class="hero-eyebrow">Clean Energy Solutions</div>
+    <h1 class="hero-title">
+      Harness the
+      <em>Power of the Sun</em>
+    </h1>
+    <p class="hero-sub">
+      RAISER Energy Corporation delivers premium solar infrastructure for homes, businesses, and enterprises. Built for tomorrow, installed today.
+    </p>
+    <div class="hero-cta">
+      <a href="products.html" class="btn-primary">Explore Products</a>
+      <a href="projects.html" class="btn-outline">View Projects</a>
+    </div>
+  </div>
+
+  <aside class="hero-panel fade-up">
+    <div class="hero-panel-top">
+      <div>
+        <div class="section-label">Live Solar Estimate</div>
+        <h3>Smart rooftop planning before installation.</h3>
+      </div>
+      <div class="sun-meter">82%</div>
+    </div>
+    <p>Estimate system size, monthly savings, subsidy path, and installation readiness from a single consultation.</p>
+    <div class="hero-metrics">
+      <div class="hero-metric"><strong>25yr</strong><span>Panel life</span></div>
+      <div class="hero-metric"><strong>4hr</strong><span>Support SLA</span></div>
+      <div class="hero-metric"><strong>0%</strong><span>EMI options</span></div>
+    </div>
+    <div class="power-flow">
+      <div class="flow-node"><b>Panels</b><p>Generate</p></div>
+      <div class="flow-node"><b>Inverter</b><p>Convert</p></div>
+      <div class="flow-node"><b>Battery</b><p>Store</p></div>
+    </div>
+  </aside>
+
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span class="scroll-label">Scroll</span>
+  </div>
+</section>
+
+<!-- ── STATS ── -->
+<div class="stats-strip">
+  <div class="stat">
+    <div class="num">12<span class="unit">K+</span></div>
+    <div class="lbl">Installations Complete</div>
+  </div>
+  <div class="stat">
+    <div class="num">98<span class="unit">%</span></div>
+    <div class="lbl">Client Satisfaction</div>
+  </div>
+  <div class="stat">
+    <div class="num">50<span class="unit">MW</span></div>
+    <div class="lbl">Clean Energy Generated</div>
+  </div>
+  <div class="stat">
+    <div class="num">15<span class="unit">yr</span></div>
+    <div class="lbl">Industry Experience</div>
+  </div>
+</div>
+
+<section class="solar-feature-band">
+  <div class="solar-glass">
+    <div class="section-label">New Website Features</div>
+    <h3>Everything a solar customer expects on one modern site.</h3>
+    <p>RAISER now has public product data, owner editing, customer portal actions, search, sharing, and a savings estimator designed to feel like a premium solar platform.</p>
+  </div>
+  <ul class="solar-feature-list">
+    <li><strong style="color:var(--white)">Owner CRUD:</strong> Update products, offers, projects, customers, and orders from the operation panel.</li>
+    <li><strong style="color:var(--white)">Customer Flow:</strong> Quote requests, payment history, support tickets, and installation progress stay grouped in the portal.</li>
+    <li><strong style="color:var(--white)">Solar Background:</strong> The homepage now uses a brighter solar-field hero with glass panels and sunlight linework.</li>
+  </ul>
+</section>
+
+<!-- ── WHY RAISER ── -->
+<section class="section">
+  <div class="section-label">Why Choose Us</div>
+  <h2 class="section-title">Energy Redefined for<br>the <em>Modern Era</em></h2>
+  <div class="why-grid">
+    <div class="why-img">
+      <img src="https://images.unsplash.com/photo-1497440001374-f26997328c1b?w=800&q=80" alt="Solar Installation"/>
+      <div class="why-img-badge">15+<br>Years<br>Trust</div>
+    </div>
+    <div>
+      <p style="color:var(--gray);font-size:0.88rem;line-height:1.9;">
+        We combine engineering precision with sustainable vision. Every RAISER installation is backed by world-class support, certified technicians, and cutting-edge technology.
+      </p>
+      <div class="gold-line"></div>
+      <div class="why-points">
+        <div class="why-point">
+          <div class="why-point-icon">⚡</div>
+          <div>
+            <h4>Premium Grade Hardware</h4>
+            <p>Tier-1 solar panels with 25-year performance warranties and industry-leading efficiency ratings.</p>
+          </div>
+        </div>
+        <div class="why-point">
+          <div class="why-point-icon">🛡</div>
+          <div>
+            <h4>End-to-End Warranty</h4>
+            <p>Comprehensive coverage from installation to maintenance — we own the outcome.</p>
+          </div>
+        </div>
+        <div class="why-point">
+          <div class="why-point-icon">📡</div>
+          <div>
+            <h4>Smart Energy Monitoring</h4>
+            <p>Real-time performance dashboards and AI-driven optimization for maximum yield.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SERVICES PREVIEW ── -->
+<section class="section" style="padding-top:0">
+  <div class="section-label">Our Services</div>
+  <h2 class="section-title">What We <em>Deliver</em></h2>
+  <div class="services-grid">
+    <a href="services.html" class="service-tile">
+      <div class="service-number">01</div>
+      <h3>Solar Installation</h3>
+      <p>Residential and commercial rooftop solar systems designed and installed by certified engineers.</p>
+      <span class="service-arrow">→</span>
+    </a>
+    <a href="services.html" class="service-tile">
+      <div class="service-number">02</div>
+      <h3>Repair & Maintenance</h3>
+      <p>Ongoing system health checks, rapid fault resolution, and performance optimization services.</p>
+      <span class="service-arrow">→</span>
+    </a>
+    <a href="contact.html" class="service-tile">
+      <div class="service-number">03</div>
+      <h3>Energy Consulting</h3>
+      <p>Tailored energy audits and solar feasibility reports for smarter decision-making.</p>
+      <span class="service-arrow">→</span>
+    </a>
+  </div>
+</section>
+
+<section class="savings-section" id="savings">
+  <div>
+    <div class="section-label">Savings Calculator</div>
+    <h2 class="section-title">Estimate Your <em>Solar Return</em></h2>
+    <div class="gold-line"></div>
+    <p style="color:var(--gray);font-size:0.88rem;line-height:1.9;max-width:520px">
+      Move the sliders to estimate system size, monthly bill reduction, and yearly savings before requesting a detailed site survey.
+    </p>
+  </div>
+  <div class="calculator-card">
+    <div class="calc-row">
+      <label>Monthly Electricity Bill: <span id="billValue">Rs. 6,000</span></label>
+      <input id="billRange" type="range" min="1500" max="50000" step="500" value="6000"/>
+    </div>
+    <div class="calc-row">
+      <label>Rooftop Area: <span id="areaValue">800 sq.ft</span></label>
+      <input id="areaRange" type="range" min="200" max="5000" step="100" value="800"/>
+    </div>
+    <div class="calc-output">
+      <div><strong id="systemSize">5kW</strong><span>Recommended system</span></div>
+      <div><strong id="monthlySavings">Rs. 4,800</strong><span>Monthly savings</span></div>
+      <div><strong id="yearlySavings">Rs. 57,600</strong><span>Yearly savings</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PRODUCTS PREVIEW ── -->
+<section class="section" style="padding-top:0">
+  <div class="section-label">Our Products</div>
+  <h2 class="section-title">Engineered for <em>Excellence</em></h2>
+  <div class="products-row">
+    <a href="products.html" class="product-card">
+      <img src="https://images.unsplash.com/photo-1558449028-b53a39d100fc?w=600&q=80" alt="Solar Panels"/>
+      <div class="product-card-info">
+        <span>Product Line</span>
+        <h3>Solar Panels</h3>
+      </div>
+    </a>
+    <a href="products.html" class="product-card">
+      <img src="https://images.unsplash.com/photo-1620714223084-8fcacc2dbe4d?w=600&q=80" alt="Battery Storage"/>
+      <div class="product-card-info">
+        <span>Product Line</span>
+        <h3>Battery Storage</h3>
+      </div>
+    </a>
+    <a href="products.html" class="product-card">
+      <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=600&q=80" alt="Inverters"/>
+      <div class="product-card-info">
+        <span>Product Line</span>
+        <h3>Inverters</h3>
+      </div>
+    </a>
+  </div>
+</section>
+
+<section class="faq-section">
+  <div class="section-label">Questions</div>
+  <h2 class="section-title">Solar Made <em>Clear</em></h2>
+  <div class="faq-grid">
+    <article class="faq-card"><h3>Can the owner edit products?</h3><p>Yes. The owner operation panel updates the JSON data used by the public product, offer, and project pages.</p></article>
+    <article class="faq-card"><h3>Do customers need an account?</h3><p>Customers can request quotes publicly, then use the portal for support, payments, and service history.</p></article>
+    <article class="faq-card"><h3>Are inverter and battery images real?</h3><p>Product pages now use real open-source solar inverter and home battery storage images.</p></article>
+    <article class="faq-card"><h3>Can this become fully online?</h3><p>Yes. The current local Node server can later be connected to a proper database and deployed publicly.</p></article>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section class="cta-section">
+  <div class="cta-section-bg"></div>
+  <div class="cta-section-overlay"></div>
+  <div class="cta-content">
+    <h2>Start Your <em>Solar Journey</em> Today</h2>
+    <p>Get a free site assessment and custom quote from our team of certified solar engineers.</p>
+    <a href="customer-portal.html" class="btn-primary" style="font-size:0.8rem;padding:16px 44px;">Request a Free Quote</a>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="nav-logo" style="display:inline-flex">
+        <div class="logo-icon">☀</div>
+        <div>
+          <span class="logo-text">RAISER</span>
+          <span class="logo-sub">Energy Corporation</span>
+        </div>
+      </a>
+      <p>Empowering homes and businesses with clean, sustainable solar energy since 2009.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="about.html">About Us</a>
+      <a href="about.html#team">Our Team</a>
+      <a href="about.html#mission">Mission</a>
+      <a href="projects.html">Projects</a>
+    </div>
+    <div class="footer-col">
+      <h4>Products</h4>
+      <a href="products.html">Solar Panels</a>
+      <a href="products.html">Battery</a>
+      <a href="products.html">Inverters</a>
+      <a href="offers.html">Pricing</a>
+    </div>
+    <div class="footer-col">
+      <h4>Support</h4>
+      <a href="contact.html">Contact</a>
+      <a href="customer-portal.html">Customer Portal</a>
+      <a href="login.html">Login</a>
+      <a href="register.html">Register</a>
+      <a href="owner-login.html">Owner Login</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 RAISER Energy Corporation. All Rights Reserved.</p>
+    <p style="color:var(--gold);font-family:var(--font-mono);font-size:0.6rem;letter-spacing:0.1em;">POWERING A SUSTAINABLE FUTURE</p>
+  </div>
+</footer>
+<script src="js/website.js"></script>
+</body>
+</html>

@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Customer Portal — RAISER Energy Corporation</title>
+<link rel="stylesheet" href="style.css"/>
+<style>
+.portal-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  min-height: 100vh;
+  padding-top: 80px;
+}
+
+.portal-sidebar {
+  background: var(--dark2);
+  border-right: 1px solid rgba(201,168,76,0.1);
+  padding: 40px 0;
+  position: sticky;
+  top: 80px;
+  height: calc(100vh - 80px);
+  overflow-y: auto;
+}
+
+.sidebar-user {
+  padding: 0 28px 32px;
+  border-bottom: 1px solid rgba(201,168,76,0.1);
+  margin-bottom: 20px;
+}
+
+.user-avatar {
+  width: 56px; height: 56px;
+  background: linear-gradient(135deg, var(--gold), var(--orange));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: 14px;
+}
+
+.sidebar-user h4 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.sidebar-user span {
+  font-size: 0.68rem;
+  color: var(--gray);
+}
+
+.sidebar-nav {
+  list-style: none;
+  padding: 0 16px;
+}
+
+.sidebar-nav li a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  font-size: 0.8rem;
+  color: var(--gray);
+  text-decoration: none;
+  border-radius: 2px;
+  transition: all 0.2s;
+  letter-spacing: 0.02em;
+}
+
+.sidebar-nav li a .s-icon { font-size: 1rem; width: 20px; text-align: center; }
+
+.sidebar-nav li a:hover,
+.sidebar-nav li a.active {
+  color: var(--white);
+  background: rgba(201,168,76,0.08);
+  border-left: 2px solid var(--gold);
+  padding-left: 14px;
+}
+
+.sidebar-nav li a.active { color: var(--gold); }
+
+.sidebar-section-label {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gray2);
+  padding: 20px 32px 8px;
+}
+
+.portal-main {
+  background: var(--black);
+  padding: 50px 60px;
+  overflow-y: auto;
+}
+
+.portal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 50px;
+}
+
+.portal-content { display: none; }
+.portal-content.active { display: block; }
+
+/* QUOTES */
+.quote-form {
+  background: var(--dark2);
+  border: 1px solid rgba(201,168,76,0.1);
+  padding: 50px;
+  max-width: 700px;
+}
+
+/* PAYMENTS */
+.payment-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 30px;
+}
+
+.payment-table th {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  padding: 14px 20px;
+  text-align: left;
+  border-bottom: 1px solid rgba(201,168,76,0.15);
+}
+
+.payment-table td {
+  font-size: 0.82rem;
+  color: var(--gray);
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.payment-table tr:hover td { background: rgba(201,168,76,0.03); color: var(--white); }
+
+.status-pill {
+  display: inline-block;
+  padding: 4px 12px;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.status-pill.paid { background: rgba(76,201,120,0.15); color: #4CC978; }
+.status-pill.pending { background: rgba(201,168,76,0.15); color: var(--gold); }
+.status-pill.due { background: rgba(232,93,4,0.15); color: var(--orange); }
+
+/* SUPPORT TICKETS */
+.ticket-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 30px;
+}
+
+.ticket-item {
+  background: var(--dark2);
+  border: 1px solid rgba(201,168,76,0.1);
+  padding: 24px 28px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 20px;
+  align-items: center;
+  transition: border-color 0.3s;
+}
+
+.ticket-item:hover { border-color: rgba(201,168,76,0.3); }
+
+.ticket-id {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--gold);
+}
+
+.ticket-title {
+  font-size: 0.85rem;
+  color: var(--white);
+  font-weight: 500;
+}
+
+.ticket-date {
+  font-size: 0.72rem;
+  color: var(--gray);
+  margin-top: 4px;
+}
+
+/* STATS ROW */
+.portal-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 50px;
+}
+
+.p-stat {
+  background: var(--dark2);
+  border: 1px solid rgba(201,168,76,0.1);
+  padding: 28px;
+}
+
+.p-stat .p-num {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: var(--gold);
+}
+
+.p-stat .p-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray);
+  margin-top: 6px;
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="logo-icon">☀</div>
+    <div><span class="logo-text">RAISER</span><span class="logo-sub">Energy Corporation</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="products.html">Products</a></li>
+    <li><a href="offers.html">Offers</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-actions">
+    <a href="index.html" class="btn-outline">← Back to Site</a>
+  </div>
+</nav>
+
+<div class="portal-layout">
+  <!-- SIDEBAR -->
+  <aside class="portal-sidebar">
+    <div class="sidebar-user">
+      <div class="user-avatar">RK</div>
+      <h4>Ravi Kumar</h4>
+      <span>ravi@email.com</span>
+    </div>
+
+    <div class="sidebar-section-label">Customer Portal</div>
+    <ul class="sidebar-nav">
+      <li><a href="#" class="active" onclick="showTab('overview',this)"><span class="s-icon">📊</span> Overview</a></li>
+    </ul>
+
+    <div class="sidebar-section-label">My Requests</div>
+    <ul class="sidebar-nav">
+      <li><a href="#" onclick="showTab('quotes',this)"><span class="s-icon">📋</span> Get a Quote</a></li>
+      <li><a href="#" onclick="showTab('support',this)"><span class="s-icon">🔧</span> Support Tickets</a></li>
+    </ul>
+
+    <div class="sidebar-section-label">Finance</div>
+    <ul class="sidebar-nav">
+      <li><a href="#" onclick="showTab('payments',this)"><span class="s-icon">💳</span> Payments</a></li>
+    </ul>
+
+    <div class="sidebar-section-label">Account</div>
+    <ul class="sidebar-nav">
+      <li><a href="customer-portal.html"><span class="s-icon">🖥</span> Dashboard</a></li>
+      <li><a href="login.html"><span class="s-icon">🚪</span> Logout</a></li>
+    </ul>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="portal-main">
+
+    <!-- OVERVIEW -->
+    <div class="portal-content active" id="tab-overview">
+      <div class="portal-header">
+        <div>
+          <div class="section-label">Customer Portal</div>
+          <h2 class="section-title" style="font-size:2.5rem">Good morning, <em>Ravi</em></h2>
+        </div>
+      </div>
+      <div class="portal-stats">
+        <div class="p-stat"><div class="p-num">5kW</div><div class="p-label">System Size</div></div>
+        <div class="p-stat"><div class="p-num">₹2,340</div><div class="p-label">Saved This Month</div></div>
+        <div class="p-stat"><div class="p-num">94%</div><div class="p-label">System Efficiency</div></div>
+        <div class="p-stat"><div class="p-num">2</div><div class="p-label">Open Tickets</div></div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+        <div class="card">
+          <div class="section-label">Recent Activity</div>
+          <p style="color:var(--gray);font-size:0.82rem;margin-top:16px;line-height:2">
+            ✓ Annual maintenance completed — May 2025<br>
+            ✓ EMI payment received — Apr 2025<br>
+            ✓ System performance report sent — Apr 2025<br>
+            ⏳ Inverter firmware update pending
+          </p>
+        </div>
+        <div class="card">
+          <div class="section-label">Quick Actions</div>
+          <div style="display:flex;flex-direction:column;gap:12px;margin-top:16px">
+            <a href="#" onclick="showTab('quotes',null)" class="btn-outline" style="text-align:center">Request a Quote</a>
+            <a href="#" onclick="showTab('support',null)" class="btn-outline" style="text-align:center">Raise Support Ticket</a>
+            <a href="#" onclick="showTab('payments',null)" class="btn-outline" style="text-align:center">View Payment History</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUOTES -->
+    <div class="portal-content" id="tab-quotes">
+      <div class="portal-header">
+        <div>
+          <div class="section-label">Solar Quote</div>
+          <h2 class="section-title" style="font-size:2.5rem">Request a <em>Quote</em></h2>
+        </div>
+      </div>
+      <div class="quote-form">
+        <div class="form-group">
+          <label>Property Type</label>
+          <select>
+            <option>Residential — Independent House</option>
+            <option>Residential — Apartment</option>
+            <option>Commercial — Office / Shop</option>
+            <option>Industrial — Factory</option>
+          </select>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+          <div class="form-group">
+            <label>Average Monthly Bill (₹)</label>
+            <input type="number" placeholder="e.g. 5000"/>
+          </div>
+          <div class="form-group">
+            <label>Roof Area (sq.ft)</label>
+            <input type="number" placeholder="e.g. 800"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Products Interested In</label>
+          <select>
+            <option>Solar Panels Only</option>
+            <option>Solar + Inverter</option>
+            <option>Complete System (Panels + Inverter + Battery)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Additional Notes</label>
+          <textarea placeholder="Any specific requirements, shading issues, preferred brands..."></textarea>
+        </div>
+        <button class="btn-primary" style="padding:14px 40px" onclick="alert('Quote request submitted! Our team will call you within 24 hours.')">Submit Quote Request →</button>
+      </div>
+    </div>
+
+    <!-- PAYMENTS -->
+    <div class="portal-content" id="tab-payments">
+      <div class="portal-header">
+        <div>
+          <div class="section-label">Finance</div>
+          <h2 class="section-title" style="font-size:2.5rem">Payment <em>History</em></h2>
+        </div>
+        <a href="#" class="btn-primary" onclick="alert('Redirecting to payment gateway...')">Pay Now</a>
+      </div>
+      <table class="payment-table">
+        <thead>
+          <tr>
+            <th>Invoice #</th>
+            <th>Description</th>
+            <th>Amount</th>
+            <th>Date</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="color:var(--white)">#INV-2025-042</td>
+            <td>EMI Payment — Month 5</td>
+            <td style="color:var(--white)">₹4,115</td>
+            <td>May 1, 2025</td>
+            <td><span class="status-pill paid">Paid</span></td>
+          </tr>
+          <tr>
+            <td style="color:var(--white)">#INV-2025-031</td>
+            <td>Annual Maintenance Contract</td>
+            <td style="color:var(--white)">₹12,000</td>
+            <td>Apr 15, 2025</td>
+            <td><span class="status-pill paid">Paid</span></td>
+          </tr>
+          <tr>
+            <td style="color:var(--white)">#INV-2025-028</td>
+            <td>EMI Payment — Month 4</td>
+            <td style="color:var(--white)">₹4,115</td>
+            <td>Apr 1, 2025</td>
+            <td><span class="status-pill paid">Paid</span></td>
+          </tr>
+          <tr>
+            <td style="color:var(--white)">#INV-2025-019</td>
+            <td>Inverter Replacement Part</td>
+            <td style="color:var(--white)">₹3,200</td>
+            <td>Mar 20, 2025</td>
+            <td><span class="status-pill paid">Paid</span></td>
+          </tr>
+          <tr>
+            <td style="color:var(--white)">#INV-2025-055</td>
+            <td>EMI Payment — Month 6</td>
+            <td style="color:var(--white)">₹4,115</td>
+            <td>Jun 1, 2025</td>
+            <td><span class="status-pill due">Due</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- SUPPORT -->
+    <div class="portal-content" id="tab-support">
+      <div class="portal-header">
+        <div>
+          <div class="section-label">Help & Support</div>
+          <h2 class="section-title" style="font-size:2.5rem">Support <em>Tickets</em></h2>
+        </div>
+        <button class="btn-primary" onclick="alert('New ticket form: Describe your issue and our team will respond within 4 hours.')">New Ticket</button>
+      </div>
+
+      <div class="ticket-list">
+        <div class="ticket-item">
+          <div><div class="ticket-id">#TKT-0892</div></div>
+          <div>
+            <div class="ticket-title">Inverter display showing error E04</div>
+            <div class="ticket-date">Opened: May 10, 2025</div>
+          </div>
+          <span class="status-pill pending">In Progress</span>
+        </div>
+        <div class="ticket-item">
+          <div><div class="ticket-id">#TKT-0881</div></div>
+          <div>
+            <div class="ticket-title">Panel cleaning request for annual maintenance</div>
+            <div class="ticket-date">Opened: May 3, 2025</div>
+          </div>
+          <span class="status-pill pending">Scheduled</span>
+        </div>
+        <div class="ticket-item">
+          <div><div class="ticket-id">#TKT-0854</div></div>
+          <div>
+            <div class="ticket-title">App monitoring not syncing data</div>
+            <div class="ticket-date">Opened: Apr 22, 2025</div>
+          </div>
+          <span class="status-pill paid">Resolved</span>
+        </div>
+      </div>
+
+      <div style="margin-top:50px">
+        <div class="section-label">Raise New Ticket</div>
+        <div class="quote-form" style="margin-top:24px">
+          <div class="form-group">
+            <label>Issue Category</label>
+            <select>
+              <option>Panel Performance Issue</option>
+              <option>Inverter Error / Fault</option>
+              <option>Battery Problem</option>
+              <option>App / Monitoring Issue</option>
+              <option>Billing Query</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Describe Your Issue</label>
+            <textarea placeholder="Describe the problem in detail — error codes, when it started, any unusual sounds or behavior..."></textarea>
+          </div>
+          <button class="btn-primary" style="padding:14px 40px" onclick="alert('Ticket submitted! Our support team will contact you within 4 working hours.')">Submit Ticket →</button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showTab(tab, el) {
+  document.querySelectorAll('.portal-content').forEach(c => c.classList.remove('active'));
+  document.querySelectorAll('.sidebar-nav a').forEach(a => a.classList.remove('active'));
+  document.getElementById('tab-' + tab).classList.add('active');
+  if (el) el.classList.add('active');
+}
+</script>
+</body>
+</html>

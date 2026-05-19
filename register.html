@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Register — RAISER Energy Corporation</title>
+<link rel="stylesheet" href="style.css"/>
+<style>
+.auth-layout {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.auth-visual {
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-visual img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  filter: brightness(0.2);
+}
+
+.auth-visual-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(201,168,76,0.08), transparent);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 60px;
+}
+
+.auth-visual-overlay h2 {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 300;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.auth-visual-overlay h2 em { font-style: italic; color: var(--gold); }
+
+.auth-visual-overlay ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.auth-visual-overlay ul li {
+  font-size: 0.82rem;
+  color: var(--gray);
+  padding-left: 20px;
+  position: relative;
+}
+
+.auth-visual-overlay ul li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+}
+
+.auth-form-panel {
+  background: var(--dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px;
+  overflow-y: auto;
+}
+
+.auth-form-box {
+  width: 100%;
+  max-width: 460px;
+}
+
+.auth-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 40px;
+  text-decoration: none;
+}
+
+.auth-form-box h2 {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 300;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+
+.auth-form-box > p {
+  font-size: 0.8rem;
+  color: var(--gray);
+  margin-bottom: 36px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.auth-link {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--gray);
+  margin-top: 24px;
+}
+
+.auth-link a {
+  color: var(--gold);
+  text-decoration: none;
+}
+</style>
+</head>
+<body>
+
+<div class="auth-layout">
+  <!-- Visual -->
+  <div class="auth-visual">
+    <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=1200&q=80" alt="Solar Farm"/>
+    <div class="auth-visual-overlay">
+      <h2>Join the<br><em>Solar Revolution</em></h2>
+      <ul>
+        <li>Free site assessment on registration</li>
+        <li>Access to exclusive RAISER member offers</li>
+        <li>Real-time solar performance dashboard</li>
+        <li>Priority scheduling for installations</li>
+        <li>Dedicated customer success manager</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Form -->
+  <div class="auth-form-panel">
+    <div class="auth-form-box">
+      <a href="index.html" class="auth-logo">
+        <div class="logo-icon">☀</div>
+        <div>
+          <span class="logo-text">RAISER</span>
+          <span class="logo-sub">Energy Corporation</span>
+        </div>
+      </a>
+
+      <h2>Create Account</h2>
+      <p>Join thousands of RAISER solar customers</p>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" placeholder="Ravi" id="r-fname"/>
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" placeholder="Kumar"/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" placeholder="ravi@email.com" id="r-email"/>
+      </div>
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input type="tel" placeholder="+91 98765 43210"/>
+      </div>
+      <div class="form-group">
+        <label>City / Location</label>
+        <input type="text" placeholder="Pondicherry"/>
+      </div>
+      <div class="form-group">
+        <label>I Am Interested In</label>
+        <select>
+          <option>Residential Solar System</option>
+          <option>Commercial Solar System</option>
+          <option>Industrial / Large Scale</option>
+          <option>Battery Storage</option>
+          <option>Repair & Maintenance</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" placeholder="Create password" id="r-pass"/>
+        </div>
+        <div class="form-group">
+          <label>Confirm Password</label>
+          <input type="password" placeholder="Confirm password" id="r-conf"/>
+        </div>
+      </div>
+
+      <button class="btn-primary" style="width:100%;padding:16px;font-size:0.78rem" onclick="doRegister()">
+        Create Account →
+      </button>
+
+      <div class="auth-link" style="margin-top:20px">
+        Already have an account? <a href="login.html">Login here</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function doRegister() {
+  const f = document.getElementById('r-fname').value.trim();
+  const e = document.getElementById('r-email').value.trim();
+  const p = document.getElementById('r-pass').value;
+  const c = document.getElementById('r-conf').value;
+  if (!f || !e) { alert('Please fill in your name and email.'); return; }
+  if (p !== c) { alert('Passwords do not match.'); return; }
+  alert('Registration successful! Welcome to RAISER Energy.');
+  window.location.href = 'customer-portal.html';
+}
+</script>
+</body>
+</html>

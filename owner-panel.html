@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Owner Operation Panel — RAISER Energy Corporation</title>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body class="owner-panel-page">
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="logo-icon">RAISER</div>
+    <div><span class="logo-text">RAISER</span><span class="logo-sub">Energy Corporation</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="owner-panel.html" class="active">Operation</a></li>
+    <li><a href="products.html">Products</a></li>
+    <li><a href="offers.html">Offers</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="customer-portal.html">Portal</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="btn-outline" id="owner-logout">Logout</button>
+  </div>
+</nav>
+
+<main class="owner-shell">
+  <section class="owner-hero">
+    <div>
+      <div class="section-label">Admin Panel</div>
+      <h1 class="section-title">Owner <em>Operation Page</em></h1>
+      <p>Update daily website content here. Changes save into <strong>data/site-data.json</strong> and appear on the public pages.</p>
+    </div>
+    <div class="owner-actions">
+      <button class="btn-primary" id="save-data">Save Changes</button>
+      <button class="btn-outline" id="reload-data">Reload</button>
+    </div>
+  </section>
+
+  <section class="owner-grid">
+    <aside class="owner-tabs">
+      <button class="active" data-admin-tab="products">Products</button>
+      <button data-admin-tab="offers">Offers</button>
+      <button data-admin-tab="projects">Projects</button>
+      <button data-admin-tab="customers">Customers</button>
+      <button data-admin-tab="orders">Orders</button>
+    </aside>
+
+    <section class="owner-workspace">
+      <div class="owner-status" id="owner-status">Ready</div>
+      <div id="admin-products" class="admin-pane active"></div>
+      <div id="admin-offers" class="admin-pane"></div>
+      <div id="admin-projects" class="admin-pane"></div>
+      <div id="admin-customers" class="admin-pane"></div>
+      <div id="admin-orders" class="admin-pane"></div>
+    </section>
+  </section>
+</main>
+<script src="js/owner-admin.js"></script>
+</body>
+</html>

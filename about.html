@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>About Us — RAISER Energy Corporation</title>
+<link rel="stylesheet" href="style.css"/>
+<style>
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 60px;
+}
+
+.team-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.team-img {
+  aspect-ratio: 3/4;
+  background: var(--dark3);
+  position: relative;
+  overflow: hidden;
+}
+
+.team-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(40%) brightness(0.75);
+  transition: all 0.5s;
+}
+
+.team-card:hover .team-img img {
+  filter: grayscale(0%) brightness(0.85);
+  transform: scale(1.05);
+}
+
+.team-info {
+  padding: 24px 0;
+  border-bottom: 1px solid rgba(201,168,76,0.15);
+}
+
+.team-info h3 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--white);
+}
+
+.team-info span {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--gold);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.value-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+  background: rgba(201,168,76,0.08);
+  margin-top: 60px;
+}
+
+.value-cell {
+  background: var(--dark);
+  padding: 60px;
+}
+
+.value-cell .icon {
+  font-size: 2rem;
+  margin-bottom: 24px;
+  display: block;
+}
+
+.value-cell h3 {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: var(--white);
+  margin-bottom: 16px;
+}
+
+.value-cell p {
+  font-size: 0.82rem;
+  color: var(--gray);
+  line-height: 1.9;
+}
+
+.timeline {
+  position: relative;
+  margin-top: 60px;
+  padding-left: 80px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 20px;
+  top: 0; bottom: 0;
+  width: 1px;
+  background: linear-gradient(180deg, var(--gold), transparent);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 60px;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -68px;
+  top: 6px;
+  width: 10px; height: 10px;
+  border: 2px solid var(--gold);
+  background: var(--black);
+  border-radius: 50%;
+}
+
+.timeline-year {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: var(--gold);
+  letter-spacing: 0.2em;
+  margin-bottom: 12px;
+}
+
+.timeline-item h3 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--white);
+  margin-bottom: 10px;
+}
+
+.timeline-item p {
+  font-size: 0.8rem;
+  color: var(--gray);
+  line-height: 1.8;
+  max-width: 600px;
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="logo-icon">☀</div>
+    <div>
+      <span class="logo-text">RAISER</span>
+      <span class="logo-sub">Energy Corporation</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="products.html">Products</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="offers.html">Offers</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-actions">
+    <a href="login.html" class="btn-outline">Login</a>
+    <a href="register.html" class="btn-primary">Get Started</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1800&q=80')"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content fade-up">
+    <div class="section-label">About RAISER</div>
+    <h1 class="section-title">15 Years of <em>Solar Excellence</em></h1>
+    <div class="gold-line"></div>
+    <p style="color:var(--gray);font-size:0.9rem;max-width:500px;line-height:1.8">
+      Born from a passion for clean energy, RAISER has grown into India's most trusted solar corporation.
+    </p>
+  </div>
+</div>
+
+<!-- MISSION / VISION -->
+<section class="section" id="mission">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start">
+    <div>
+      <div class="section-label">Our Purpose</div>
+      <h2 class="section-title">Mission &amp;<br><em>Vision</em></h2>
+      <div class="gold-line"></div>
+      <p style="color:var(--gray);font-size:0.88rem;line-height:1.9;margin-bottom:30px">
+        <strong style="color:var(--white)">Mission:</strong> To accelerate the transition to renewable energy by making premium solar technology accessible, reliable, and affordable for every Indian home and business.
+      </p>
+      <p style="color:var(--gray);font-size:0.88rem;line-height:1.9">
+        <strong style="color:var(--white)">Vision:</strong> A future where every rooftop powers a cleaner world — RAISER envisions an India that leads the global clean energy revolution.
+      </p>
+    </div>
+    <div>
+      <div class="section-label">Our Story</div>
+      <h2 class="section-title">Built on <em>Values</em></h2>
+      <div class="gold-line"></div>
+      <div class="value-grid">
+        <div class="value-cell">
+          <span class="icon">🌱</span>
+          <h3>Sustainability</h3>
+          <p>Every decision is made with the planet in mind — from supply chain to installation.</p>
+        </div>
+        <div class="value-cell">
+          <span class="icon">⚙️</span>
+          <h3>Precision</h3>
+          <p>Engineering-grade quality control at every step of the process.</p>
+        </div>
+        <div class="value-cell">
+          <span class="icon">🤝</span>
+          <h3>Integrity</h3>
+          <p>Honest pricing, transparent processes, and real results for our clients.</p>
+        </div>
+        <div class="value-cell">
+          <span class="icon">🚀</span>
+          <h3>Innovation</h3>
+          <p>Constantly evolving technology to stay ahead of the energy curve.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="section" id="team" style="padding-top:0">
+  <div class="section-label">Our People</div>
+  <h2 class="section-title">Meet the <em>Team</em></h2>
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="team-img">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80" alt="CEO"/>
+      </div>
+      <div class="team-info">
+        <span>Founder & CEO</span>
+        <h3>Arjun Raiser</h3>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="team-img">
+        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&q=80" alt="CTO"/>
+      </div>
+      <div class="team-info">
+        <span>Chief Technology Officer</span>
+        <h3>Priya Nair</h3>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="team-img">
+        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80" alt="COO"/>
+      </div>
+      <div class="team-info">
+        <span>Chief Operations Officer</span>
+        <h3>Vikram Mehta</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="section" style="padding-top:0">
+  <div class="section-label">Our Journey</div>
+  <h2 class="section-title">A Legacy of <em>Impact</em></h2>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-year">2009</div>
+      <h3>Founded in Chennai</h3>
+      <p>RAISER Energy was established with a team of 5 engineers and a dream to power a greener India.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">2013</div>
+      <h3>First 1,000 Installations</h3>
+      <p>Reached a milestone of 1,000 residential solar installations across Tamil Nadu.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">2018</div>
+      <h3>Commercial Division Launch</h3>
+      <p>Expanded to serve industrial and commercial clients across South India with MW-scale projects.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">2022</div>
+      <h3>National Expansion</h3>
+      <p>Opened offices in 8 cities with 500+ employees and partnerships with global solar manufacturers.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">2025</div>
+      <h3>50 MW Milestone</h3>
+      <p>Crossed 50 MW of installed solar capacity — enough to power 40,000 homes.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="nav-logo" style="display:inline-flex">
+        <div class="logo-icon">☀</div>
+        <div>
+          <span class="logo-text">RAISER</span>
+          <span class="logo-sub">Energy Corporation</span>
+        </div>
+      </a>
+      <p>Empowering homes and businesses with clean, sustainable solar energy since 2009.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="about.html">About Us</a>
+      <a href="about.html#team">Our Team</a>
+      <a href="about.html#mission">Mission</a>
+      <a href="projects.html">Projects</a>
+    </div>
+    <div class="footer-col">
+      <h4>Products</h4>
+      <a href="products.html">Solar Panels</a>
+      <a href="products.html">Battery</a>
+      <a href="products.html">Inverters</a>
+      <a href="offers.html">Pricing</a>
+    </div>
+    <div class="footer-col">
+      <h4>Support</h4>
+      <a href="contact.html">Contact</a>
+      <a href="customer-portal.html">Customer Portal</a>
+      <a href="login.html">Login</a>
+      <a href="register.html">Register</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 RAISER Energy Corporation. All Rights Reserved.</p>
+    <p style="color:var(--gold);font-family:var(--font-mono);font-size:0.6rem;letter-spacing:0.1em;">POWERING A SUSTAINABLE FUTURE</p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Owner Login — RAISER Energy Corporation</title>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<div class="auth-layout owner-auth">
+  <div class="auth-visual">
+    <img src="https://images.unsplash.com/photo-1497440001374-f26997328c1b?w=1200&q=80" alt="Solar operations"/>
+    <div class="auth-visual-overlay">
+      <h2>Owner<br><em>Operations</em></h2>
+      <p>Secure access for managing products, offers, projects, customers, and installation orders.</p>
+    </div>
+  </div>
+
+  <div class="auth-form-panel">
+    <div class="auth-form-box">
+      <a href="index.html" class="auth-logo">
+        <div class="logo-icon">RAISER</div>
+        <div><span class="logo-text">RAISER</span><span class="logo-sub">Energy Corporation</span></div>
+      </a>
+      <h2>Owner Login</h2>
+      <p>Only the RAISER owner can open the operation page.</p>
+      <div class="form-group">
+        <label>Owner Email</label>
+        <input type="email" id="owner-email" value="owner@raiserenergy.com"/>
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" id="owner-password" placeholder="Owner password"/>
+      </div>
+      <button class="btn-primary" id="owner-login-btn" style="width:100%;padding:16px;font-size:0.78rem">Open Operation Page</button>
+      <p class="owner-note" id="owner-login-msg"></p>
+      <div class="auth-link">
+        Customer? <a href="login.html">Use customer login</a>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="js/owner-admin.js"></script>
+</body>
+</html>
